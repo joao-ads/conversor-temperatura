@@ -1,0 +1,48 @@
+<br />
+<section class="container">
+    <div class="card card-success">
+        <div class="card-body text-center">
+            <form class="for row" #conversaoForm="ngForm">
+                <div class="col-4">
+                    <input type="number" name="valor"
+                     class="form-control text-right"  placeholder="0.00" required [(ngModel)]="conversao.valor">
+                </div>
+
+                <div class="col-4">
+                    <select name="tipoConversao" class="form-control" [(ngModel)]="conversao.tipo" required>
+                        <option value="">
+                           Selecione a conversão
+                        </option>
+                        <option value="celsius-fahrenheit">
+                           de Celsius => para Fahrenheit
+                        </option>
+                        <option value="celsius-kelvin">
+                           de Celsius => para Kelvin
+                        </option>
+                        <option value="kelvin-fahrenheit">
+                           de Kelvin => para Fahrenheit
+                        </option>
+                        <option value="kelvin-celsius">
+                           de Kelvin => para Celsius
+                        </option>
+                        <option value="fahrenheit-celsius">
+                           de Fahrenheit => para Celsius
+                        </option>
+                        <option value="fahrenheit-kelvin">
+                           de °Fahrenheit => para Kelvin
+                        </option>
+                    </select>
+                </div>
+                
+                <div class="col-4">
+                    <input type="submit" value="Converter" class="btn btn-success" (click)="converter()">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="resultado" *ngIf="temperaturaConvertida != ''">
+        <h2>
+            {{msg}}
+        </h2>
+    </div>
+</section>
